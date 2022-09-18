@@ -34,6 +34,28 @@ class BotPositionsController < ApplicationController
       redirect_to :root
   end
 
+  def up
+    y_axis = @robot.bot_position.y_axis
+    if y_axis == 0 || y_axis == 1
+      @robot.bot_position.update(y_axis: 0)
+      flash[:notice] = "Moved upwards"
+    else
+      flash[:notice] = "Action not valid"
+    end
+    redirect_to :root
+  end
+
+  def down
+    y_axis = @robot.bot_position.y_axis
+    if y_axis == 0 || y_axis == 1
+      @robot.bot_position.update(y_axis: 1)
+      flash[:notice] = "Moved downwards"
+    else
+      flash[:notice] = "Action not valid"
+    end
+    redirect_to :root
+  end
+
   private
 
   def get_robot
