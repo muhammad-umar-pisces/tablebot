@@ -62,7 +62,7 @@ class RobotsController < ApplicationController
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_robot
-      @robot = Robot.find(1)
+      @robot = Robot.find(Robot.last.id)
     end
 
     # Only allow a list of trusted parameters through.
