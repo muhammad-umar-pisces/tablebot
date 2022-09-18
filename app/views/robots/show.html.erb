@@ -1,0 +1,30 @@
+<h1>Robot</h1>
+<%= link_to 'Move', bot_positions_right_path(robot_id: @robot), method: :post %> |
+<%= link_to 'Right', bot_positions_right_path(robot_id: @robot), method: :post %> |
+<%= link_to 'Left', bot_positions_left_path(robot_id: @robot), method: :post %> |
+<%= link_to "Place", bot_positions_place_path(robot_id: @robot), method: :post %>
+<br>
+<br>
+<%= link_to "Up", bot_positions_up_path(robot_id: @robot), method: :post %>
+<%= link_to "Down", bot_positions_down_path(robot_id: @robot), method: :post %>
+<table>
+  <tr>
+    <% 5.times do |index| %>
+      <td class="<%= x_position(@robot ,index) %>" ><%= index+1 %></td>
+    <% end %>
+  </tr>
+  <tr>
+    <% 5.times do |index| %>
+      <td class="<%= y_position(@robot, index)%>"><%= index+1 %></td>
+    <% end %>
+  </tr>
+  </tr>
+</table>
+<style type="text/css">
+  td {
+    padding: 50px;
+  }
+  .active {
+    background: lightgrey;
+  }
+</style>
